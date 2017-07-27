@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hangman!</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="hangman">
+  <h2>Hangman Game</h2>
+  <div class="wood">
+     <div class="rope"></div>
+     <div id="human">
+       <div class="human-parts" id="head"></div>
+       <div class="human-parts" id="body-human"></div>
+       <div class="human-parts" id="left-arm"></div>
+       <div class="human-parts" id="right-arm"></div>
+       <div class="human-parts" id="left-leg"></div>
+       <div class="human-parts" id="right-leg"></div>
+     </div>
+  </div>
+  <div id="success-hangman">
+    <h1>Game Over!</h1>
+    <h2>You Win!</h2>
+    <p>Congratulations</p>
+    <a href="javascript:;" id="success-new-game">New Game</a>
+  </div>
+  <div id="error-hangman">
+    <h1>Game Over!</h1>
+    <h2>You Lose!</h2>
+    <p>Good luck next time!</p>
+    <a href="javascript:;" id="error-new-game">New Game</a>
+  </div>
+  <div id="letters"></div>
+  <div class="score">
+    <p class="initial-score">Initial Score <span>100</span></p>
+    <p class="actual-score">Actual Score <span id="value-actual-score">0</span></p>
+    <p class="total-score">Total <span id="value-total-score">100</span></p>
+  </div>
+  <div id="random-word"></div>
+</div>
+<script src="javascript.js"></script>
+</body>
+</html>

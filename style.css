@@ -1,0 +1,286 @@
+body {
+  font-family:'Tahoma';
+  font-weight:bold;
+}
+
+#success-hangman {
+  position: absolute;
+  width:100%;
+  height:100%;
+  left: 0;
+  top: 0;
+  background-color:rgb(0, 150, 0);
+  z-index: 3;
+  color:#fff;
+  text-align:center;
+  display: none;
+}
+
+#error-hangman {
+  position: absolute;
+  width:100%;
+  height:100%;
+  left: 0;
+  top: 0;
+  background-color:rgb(150, 0, 0);
+  z-index: 3;
+  color:#fff;
+  text-align:center;
+  display: none;
+}
+
+#error-hangman h1, #success-hangman h1 {
+  margin-top:90px;
+  padding-bottom:20px;
+}
+
+#success-new-game, #error-new-game {
+  width:120px;
+  margin-left: auto;
+  margin-right: auto;
+  height:30px;
+  line-height:28px;
+  background-color:#ccc;
+  border-radius:5px;
+  border:1px solid #e9e9e9;
+  display:block;
+  margin-top:15px;
+  color:#fff;
+  text-decoration:none;
+}
+
+.hangman {
+  margin:30px auto;
+  width:60%;
+  height:350px;
+  padding:20px;
+  border:1px solid #ccc;
+  clear:both;
+  position:relative;
+}
+
+.hangman h2 {
+  font-weight:bold;
+  font-size:24px;
+  padding-bottom:20px;
+}
+
+.wood {
+  float:left;
+  width:5px;
+  position:relative;
+  height:200px;
+  background:linear-gradient(45deg, brown, black);
+  border:2px solid gray;
+}
+
+.wood::before {
+  content : '';
+  position:absolute;
+  top:-2px;
+  left:5px;
+  width:50px;
+  height:5px;
+  background:linear-gradient(90deg, black, green);
+  border-right:2px solid gray;
+  border-bottom:2px solid gray;
+  border-top:2px solid gray;
+}
+
+.rope {
+  width:2px;
+  height:30px;
+  background:rgb(200,200,0);
+  border-left:1px solid rgb(0, 150, 0);
+  border-right:1px solid rgb(0,150,0);
+  border-bottom:1px solid rgb(0,150,0);
+  border-bottom-left-radius:2px;
+  border-bottom-right-radius:2px;
+  position:absolute;
+  left:40px;
+  top:5px;
+}
+
+#human {
+  width:38px;
+  height:60px;
+  border:1px solid #ccc;
+  margin-left:22px;
+  margin-top:35px;
+  border-radius:10px;
+  position:relative;
+}
+
+.human-parts {
+  opacity:0;
+  position:absolute;
+  transition:all 0.3s linear;
+} 
+
+.human-parts-visible {
+  opacity:1;
+  position:absolute;
+  transition:all 0.3s linear;
+} 
+
+#head {
+  width:15px;
+  height:15px;
+  border-radius:50px;
+  border:1px solid #000;
+  left:10px;
+}
+
+#body-human {
+  width:2px;
+  height:20px;
+  background-color:#000;
+  left:17px;
+  top:17px;
+}
+
+#left-arm {
+  width:12px;
+  height:10px;
+  height:2px;
+  background:#000;
+  top:22px;
+  left: 8px;
+  transform:rotate(135deg);
+}
+
+#right-arm {
+  width:12px;
+  height:10px;
+  height:2px;
+  background:#000;
+  top:22px;
+  right: 10px;
+  transform:rotate(45deg);
+}
+
+#left-leg {
+  width:12px;
+  height:10px;
+  height:2px;
+  background:#000;
+  top:39px;
+  left: 8px;
+  transform:rotate(135deg);  
+}
+
+#right-leg {
+  width:12px;
+  height:10px;
+  height:2px;
+  background:#000;
+  top:39px;
+  right: 10px;
+  transform:rotate(45deg);
+}
+
+#letters {
+  position:absolute;
+  width:216px;
+  height:202px;
+  border:1px solid grey;
+  left: 98px;
+  clear:both;
+}
+
+#letters .link-letters {
+  float:left;
+  width:25px;
+  height:25px;
+  margin:5px;
+  line-height:22px;
+  background-color:rgb(220, 220, 220);
+  border-radius:5px;
+  box-shadow:2px 2px 2px rgba(0,0,0,0.75);
+  transition:all 0.2s linear;
+  text-decoration:none;
+  text-align:center;
+  color:gray;
+}
+
+#letters .link-letters:not(.active-link-letter):hover {
+  transform:scale(1.2);
+  background-color:rgb(150,150,150);
+  color:white;
+}
+
+#letters .link-letters.active-link-letter {
+  transform:scale(1.2);
+  background-color:rgb(150,100,100);
+  cursor:default;
+  color:white;
+}
+
+.score {
+  float:right;
+  width:160px;
+  height:120px;
+  background:rgb(220,220,100);
+  padding:10px;
+  border-left:2px solid rgb(100,100,100);
+  border-top:2px solid rgb(100,100,100);
+  border-right:2px solid rgb(50,50,50);
+  border-bottom:2px solid rgb(50,50,50);
+  border-radius:4px;
+}
+
+.score p {
+  line-height: 25px;  
+}
+
+.score span {
+  color:blue;
+}
+
+#random-word {
+  background:rgba(100,100,30,0.7);
+  width:100%;
+  height:40px;
+  border-radius:10px;
+  float: left;
+  margin-top:10px;
+}
+
+#random-word ul {
+  margin-left:15px;
+  margin-top:10px;
+}
+
+#random-word ul li {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right:15px;
+  text-align:center;
+  background-color:rgb(230,230,230);
+  border-radius:5px;
+  transition:all 0.3s linear;
+}
+
+#random-word span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity:0;
+  transition:all 0.3s linear;
+}
+
+#random-word .active-letter {
+  background-color:rgb(120, 120, 120);
+  transform:scale(1.2);
+}
+
+#random-word .active-letter  span {
+  opacity:1;
+  color:#fff;
+}
+
+
