@@ -158,6 +158,7 @@ var hangman = (function(){
     blockWord.innerHTML = '';
     newWord = words[parseInt(Math.random() * words.length) + 1];
     buildSpaces(newWord, blockWord);
+
   };
  
   var buildSpaces = function(word, block) {
@@ -215,3 +216,6 @@ var hangman = (function(){
 }());
 
 hangman.init();
+
+
+//had trouble with onKeyUp just used onClick
